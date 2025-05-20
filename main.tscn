@@ -11,7 +11,7 @@ subdivide_depth = 512
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6t3jb"]
 noise_type = 3
-seed = 2
+seed = 1032
 metadata/_preview_in_3d_space_ = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8luoe"]
@@ -23,21 +23,21 @@ render_priority = 0
 shader = ExtResource("1_yfk0m")
 shader_parameter/maxY = 400.0
 shader_parameter/minY = 1.0
-shader_parameter/plateau = 10.0
-shader_parameter/base = 2.35
-shader_parameter/heightScale = 6.715
+shader_parameter/plateau = 6.85
+shader_parameter/base = 1.92
+shader_parameter/heightScale = 7.215
 shader_parameter/noise = SubResource("NoiseTexture2D_8luoe")
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292024, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750125, 0)
 mesh = SubResource("PlaneMesh_wad2g")
 surface_material_override/0 = SubResource("ShaderMaterial_k2ws6")
 script = ExtResource("2_0w8t4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09939, 17.3696, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09939, 18.2891, 0)
 light_energy = 10.0
 omni_range = 89.2985
 
