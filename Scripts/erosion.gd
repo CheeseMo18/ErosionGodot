@@ -14,9 +14,9 @@ func _ready() -> void:
 	if arr.get_surface_count() > 0:
 		tool.create_from_surface(arr, 0)
 
-		for i in range(tool.get_vertex_count()):
-			var vertex = tool.get_vertex(i)
-			#print("Vertex ", i, ": ", vertex)
+#		for i in range(tool.get_vertex_count()):
+#			var vertex = tool.get_vertex(i)
+#			#print("Vertex ", i, ": ", vertex)
 
 		tool.clear()
 	else:
@@ -24,5 +24,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

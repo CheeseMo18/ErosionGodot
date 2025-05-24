@@ -9,6 +9,8 @@ uniform float base = 0.0;
 
 uniform float heightScale = 1.0;
 uniform sampler2D noise;
+uniform sampler2D voronoiNoise;
+uniform sampler2D ramp;
 
 struct Particle{
 	vec2 pos;
@@ -20,14 +22,14 @@ struct Particle{
 
 float calcVertHeight(vec2 loc) {
 	//float height = (cos(loc.x) * sin(loc.y)) + 1.0;
-	float height = texture(noise, loc/50.0 + 100.0).x * heightScale;
+	float height = (texture(voronoiNoise, loc/50.0 + 100.0).x + texture(noise, loc/50.0 + 100.0).x) * heightScale;
 	height = clamp(height, base, plateau);
 	return height;
 }
 
 //Runs on vertices
 void vertex() {
-	VERTEX.y = calcVertHeight(VERTEX.xz);
+	VERTEX.y += calcVertHeight(VERTEX.xz);
 	float height = (3.0 * pow(VERTEX.y, 2.0)) - (2.0 * pow(VERTEX.y, 3.0));
 	height = (height - minY)/(maxY - minY);
 	COLOR.xyz = vec3(height * -1.0);
